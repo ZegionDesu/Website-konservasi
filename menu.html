@@ -33,6 +33,56 @@
 </head>
 
 <body>
+
+    <!-- Toast Notification -->
+<div id="toast" class="toast">
+    <p>🚧 Halaman ini masih dalam pengembangan. 🚀</p>
+  </div>
+  
+  <!-- CSS -->
+  <style>
+    .toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+  
+    .toast.show {
+      visibility: visible;
+      animation: fadeIn 0.5s, fadeOut 0.5s 3s;
+    }
+  
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  </style>
+  
+  <!-- JavaScript -->
+  <script>
+    window.onload = function() {
+      var toast = document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(function() { toast.classList.remove("show"); }, 4000);
+    };
+  </script>
+
+
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -62,8 +112,8 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"></a>
                             <div class="dropdown-menu m-0">
-                                <!--a href="booking.html" class="dropdown-item">beli</a>
-                                <a href="team.html" class="dropdown-item"></a>
+                                <a href="booking.html" class="dropdown-item">beli</a>
+                                <!--a href="team.html" class="dropdown-item"></a>
                                 <a href="testimonial.html" class="dropdown-item"></a-->
                             </div>
                         </div>
@@ -497,8 +547,9 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+         Footer End -->
 
+        <div class="overlay" data-overlay></div>
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
