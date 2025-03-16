@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+            <!-- Toast Notification -->
+            <div id="toast" class="toast">
+                <p>🚧 Halaman ini masih dalam pengembangan. 🚀 <br> </p>
+                   Anda Akan kembali sebentar lagi <br>
+              </div>
+              
+              <!-- CSS -->
+              <style>
+                .toast {
+                  visibility: hidden;
+                  min-width: 250px;
+                  background-color: #333;
+                  color: #fff;
+                  text-align: center;
+                  padding: 12px;
+                  position: fixed;
+                  bottom: 20px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  border-radius: 5px;
+                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+                  z-index: 1000;
+                }
+              
+                .toast.show {
+                  visibility: visible;
+                  animation: fadeIn 0.5s, fadeOut 0.5s 3s;
+                }
+              
+                @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+                }
+              
+                @keyframes fadeOut {
+                  from { opacity: 1; }
+                  to { opacity: 0; }
+                }
+              </style>
+              
+              <!-- JavaScript -->
+              <script>
+                window.onload = function() {
+                  var toast = document.getElementById("toast");
+                  toast.classList.add("show");
+                  setTimeout(function() { toast.classList.remove("show"); }, 6000);
+                };
+              </script>
+            
+            <script>
+                // Waktu delay sebelum kembali ke halaman sebelumnya (dalam milidetik)
+                setTimeout(function() {
+                  if (document.referrer) {
+                    window.history.back(); // Kembali ke halaman sebelumnya jika ada
+                  } else {
+                    window.location.href = 'C:/web%20konservasi/restoran-1.0.0/menu.html'; // Redirect ke halaman utama jika tidak ada halaman sebelumnya
+                  }
+                }, 10000); // 10000 ms = 10 detik
+              </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Donasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .donation-container {
+            max-width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="donation-container">
+        <h2>Donasi Sekarang</h2>
+        <form action="/proses-donasi" method="POST">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="jumlah">Jumlah Donasi (Rp):</label>
+            <input type="number" id="jumlah" name="jumlah" min="1000" required>
+            
+            <label for="metode">Metode Pembayaran:</label>
+            <select id="metode" name="metode" required>
+                <option value="transfer">Transfer Bank</option>
+                <option value="ewallet">E-Wallet</option>
+                <option value="kartu">Kartu Kredit/Debit</option>
+            </select>
+            
+            <button type="submit">Donasi Sekarang</button>
+        </form>
+    </div>
+</body>
+</html>
